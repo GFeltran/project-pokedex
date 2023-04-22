@@ -5,7 +5,7 @@ import styled  from "styled-components";
 export const AddButton = () =>{
    return(
       <>
-         <Button><i class="fas fa-plus"></i></Button>
+         <Button><i className="fas fa-plus"></i></Button>
       </>
    )
 }

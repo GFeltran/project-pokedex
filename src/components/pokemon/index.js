@@ -1,19 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-import pokemon from '../../image/test.png'
 import background from '../../image/pokebola-aberta.png'
+import undefined from '../../image/undefined.png'
 
-export const Pokemon = () => {
+export const Pokemon = (props) => {
    return(
       <Pokebola href="#"> 
-         <h2 id="poke-id" className="poke-id">#25</h2>
+         <h2 id="poke-id" className="poke-id">#{props.id}</h2>
 
-         <img src={pokemon} alt="Imagem pokemon" id="poke-image" className="poke-image"/>
-         <h2 id="poke-name" className="poke-name">Pikachu</h2>
+         <img src={props.image} alt={`imagem ${props.name}`} id="poke-image" className="poke-image"/>
+         <h2 id="poke-name" className="poke-name">{props.name}</h2>
       </Pokebola>
    );
 };
+
+Pokemon.defaultProps = {
+   name: '?',
+   image: `${undefined}`,
+   id: '---'
+}
 
 const Pokebola = styled.a`
    position: relative;

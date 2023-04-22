@@ -21,5 +21,6 @@ const Background = styled.div`
 
    img{
       width: 250px;
+      margin-bottom: 90px;
    }
 `
