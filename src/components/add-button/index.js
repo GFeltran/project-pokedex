@@ -2,10 +2,10 @@ import React from "react";
 import styled  from "styled-components";
 
 
-export const AddButton = () =>{
+export const AddButton = ({event}) =>{
    return(
       <>
-         <Button><i className="fas fa-plus"></i></Button>
+         <Button onClick={event}><i className="fas fa-plus"></i></Button>
       </>
    )
 }

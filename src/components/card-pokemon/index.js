@@ -1,27 +1,28 @@
-import React from "react";
 import styled from "styled-components";
+//import { Link } from "react-router-dom";
+import React from "react";
 
 import background from '../../image/pokebola-aberta.png'
 import undefined from '../../image/undefined.png'
 
-export const Pokemon = (props) => {
+export const CardPokemon = ({id, name, image}) => {
    return(
-      <Pokebola href="#"> 
-         <h2 id="poke-id" className="poke-id">#{props.id}</h2>
+      <Pokebola> 
+         <h2 id="poke-id" className="poke-id">#{id}</h2>
 
-         <img src={props.image} alt={`imagem ${props.name}`} id="poke-image" className="poke-image"/>
-         <h2 id="poke-name" className="poke-name">{props.name}</h2>
+         <img src={image} alt={`imagem ${name}`} id="poke-image" className="poke-image"/>
+         <h2 id="poke-name" className="poke-name">{name}</h2>
       </Pokebola>
    );
 };
 
-Pokemon.defaultProps = {
+CardPokemon.defaultProps = {
    name: '?',
    image: `${undefined}`,
    id: '---'
 }
 
-const Pokebola = styled.a`
+const Pokebola = styled.div`
    position: relative;
    display: flex;
    flex-direction: column;
