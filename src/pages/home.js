@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
-import { Menu } from '../components/menu';
-
-import { PokemonsList } from '../components/pokemon-list';
+import { MenuHome } from '../components/components-home/menu-home';
+import { PokemonsList } from '../components/components-home/pokemon-list';
 
 const Home = () => {
    return (
       <Container>
-         <Menu />
+         <MenuHome />
 
-         <Main>
-            <PokemonsList />
-         </Main>
+         <PokemonsList />
       </Container>
    )
 }
@@ -19,13 +16,8 @@ const Home = () => {
 const Container = styled.div`
    min-height: 100vh;
    display: grid;
-   grid-template-areas: "aside main"
-   "aside main2";
+   grid-template-areas: "aside main";
    grid-template-columns: 300px 1fr;
-`
-
-const Main = styled.main`
-   grid-area: main;
 `
 
 export default Home;

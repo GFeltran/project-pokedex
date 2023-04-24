@@ -1,10 +1,10 @@
 import React,  { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { CardPokemon } from "../card-pokemon";
-import { AddButton } from "../add-button";
+import { Main } from "../../main";
 
-import background from '../../image/pokeball-bg.png'
+import { CardPokemon } from "../card-pokemon";
+import { AddButton } from "../../add-button";
 
 const getLinks = async(id) => {
    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${id}`)
@@ -60,35 +60,20 @@ export const PokemonsList = () => {
    async function addPokemon() {
       const data = await getPokemons(pokemons.length)
          
-      setPokemons([...pokemons, ...data])
+      setPokemons(p => [...p, ...data])
    }
 
    return(
-      <Container>
+      <Main>
          <PokeList>
-            <CardList list={pokemons}/>      
-         </PokeList>
+            <CardList list={pokemons}/>
+         </PokeList>  
 
          <AddButton event={addPokemon}/>
-      </Container>
+      </Main>
    );
 };
 
-const Container = styled.div`
-   position: relative;
-   background: #94e5ff;
-   min-height: 100vh;
-   
-   :before{
-      position: fixed;
-      content: '';
-      background:url(${background}) no-repeat center;
-      background-size: 100%;
-      min-width: 100%;
-      min-height: 100%;
-      opacity: .5;
-   }
-`
 
 const PokeList = styled.ul`
    display: grid;

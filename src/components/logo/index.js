@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import logo from '../../image/logo.png'
-import bg from '../../image/pokebola.png'
+import logo from '../../image/logo/logo.png'
+import bg from '../../image/logo/pokebola.png'
 
 export const Logo = () => {
    return (

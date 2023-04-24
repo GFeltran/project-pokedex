@@ -1,17 +1,19 @@
 import styled from "styled-components";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 
-import background from '../../image/pokebola-aberta.png'
-import undefined from '../../image/undefined.png'
+import background from '../../../image/background/pokebola-aberta.png'
+import undefined from '../../../image/undefined.png'
 
 export const CardPokemon = ({id, name, image}) => {
    return(
       <Pokebola> 
-         <h2 id="poke-id" className="poke-id">#{id}</h2>
+         <Link to={`/pokemon/${name}`}>
+            <h2 id="poke-id" className="poke-id">{id}</h2>
 
-         <img src={image} alt={`imagem ${name}`} id="poke-image" className="poke-image"/>
-         <h2 id="poke-name" className="poke-name">{name}</h2>
+            <img src={image} alt={`imagem ${name}`} id="poke-image" className="poke-image"/>
+            <h2 id="poke-name" className="poke-name">{name}</h2>
+         </Link>
       </Pokebola>
    );
 };
@@ -29,17 +31,22 @@ const Pokebola = styled.div`
    justify-content: center;
    align-items: center;
    border-radius: 10px;
-   border: 2px solid #000000;
+   border: 3px solid #30309a;
    height: 300px;
    width: 300px;
    background: #ffffff url(${background}) no-repeat center center;
    background-size: cover;
    cursor: pointer;
+   transition: 0.3s ease-in-out;
+
+   :hover{
+      background-color: #ffce31;
+   }
 
    .poke-id{
       position: absolute;
       top: 40px;
-      left: 40px;
+      left: 35px;
       border-radius: 50%;
       height: 50px;
       width: 50px;
@@ -48,6 +55,12 @@ const Pokebola = styled.div`
       font-size: 1.5rem;
       color: #ffffff;
       background: #ffce31;
+      transition: 0.3s ease-in-out;
+   }
+
+   :hover .poke-id{
+      color: #000000;
+      background: #ffffff;
    }
 
    .poke-image{
@@ -56,6 +69,7 @@ const Pokebola = styled.div`
    }
 
    .poke-name{
+      text-align: center;
       height: 50px;
       font-size: 4rem;
       color: #ffce31;
