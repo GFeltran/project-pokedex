@@ -41,8 +41,7 @@ const Style = styled.div`
 const List = styled.div`
    overflow: auto;
    font-size: 2.5rem;  
-   max-height: 400px;
-   padding: 5px;
+   max-heigth: 400px
    border-radius: 0 0 5px 5px ;
    border: 2px solid #fff;
    color: #000000;

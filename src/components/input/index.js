@@ -26,8 +26,8 @@ const Style = styled.input`
    height: 18px;
    width: 18px;
 
-   border-radius: 40%;
-   background: lightgrey url(${input}) no-repeat center;
+   border-radius: 45%;
+   background: lightgrey url(${input}) no-repeat center ;
    background-size: cover;
 
    transition: 0.2s;

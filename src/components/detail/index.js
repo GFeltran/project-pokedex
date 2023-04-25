@@ -42,11 +42,8 @@ const Style = styled.div`
    display: grid;
    grid-template-areas: "info"
                         "about";
-   grid-template-rows: 0.27fr 0.73fr;
-
-   height: 70%;
-   max-width: 380px;
-   min-width: 500px;
+   grid-template-rows: 0.25fr 0.75fr;
+   width: 500px;
    padding: 10px;
    border-radius: 10px;
 
@@ -72,7 +69,7 @@ const About = styled.div`
    .features{
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 40px;
       text-align: center;
       font-size: 2.5rem;
    }

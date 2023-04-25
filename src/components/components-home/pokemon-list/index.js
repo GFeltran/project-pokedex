@@ -67,7 +67,7 @@ export const PokemonsList = () => {
       <Main>
          <PokeList>
             <CardList list={pokemons}/>
-         </PokeList>  
+         </PokeList>   
 
          <AddButton event={addPokemon}/>
       </Main>

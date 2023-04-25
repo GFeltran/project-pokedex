@@ -21,7 +21,5 @@ const Section = styled.section`
    justify-content: space-around;
    align-items: center;
 
-   
-
    background: #f6bd20;
 `
