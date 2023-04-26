@@ -1,25 +1,18 @@
 import React from "react";
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import { Main } from "../components/main";
 import { MenuDetails } from "../components/components-details/menu-details";
-
-import { Info } from "../components/components-details/info";
-import { Skills } from "../components/components-details/skills/info";
+import { MainDetails } from "../components/components-details/main-details";
 
 const PokemonDetails = () => {
-   //const { name } = useParams();
+   const { id } = useParams();
 
    return(
       <Container>
          <MenuDetails/> 
 
-         <Main>
-            <Info />
-
-            <Skills />
-         </Main>
+         <MainDetails name={id} />
       </Container>
    )
 }

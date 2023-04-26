@@ -1,34 +1,62 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Input } from "../input";
 
-import testM from '../../image/test-m.png'
-//import testF from '../../image/test-f.png'
+const Inputs = ({change}) => {
+   return (
+      <Radios>
+         <Input
+            type="radio"
+            name="genero"
+            value="male"
+            isCheck={true}
+            change={change}
+         />
 
-export const Photo = () => {
-   return(
+         <Input
+            type="radio"
+            name="genero"
+            value="female"
+            change={change}
+         />
+      </Radios>
+   )
+}
+
+export const Photo = ({ male, female }) => {
+   const [photo, setPhoto] = useState(null)
+   const [altPhoto, setAltPhoto] = useState('Pokemon macho')
+
+   useEffect(() => {
+      setPhoto(male)
+   }, [male])
+
+   const handleInputChange = (value) => {
+      if (value === 'male') {
+         setPhoto(male)
+         setAltPhoto('Pokemon macho')
+      } else if (value === 'female') {
+         setPhoto(female);
+         setAltPhoto('Pokemon femea')
+      }
+   }
+
+   return (
       <>
          <Style>
-            <img src={testM} alt="test"></img>
+            <img src={photo} alt={altPhoto}></img>
 
-            <Radios>
-               <Input 
-                  type="radio" 
-                  name="genero"
-                  value="male" 
-                  isCheck={true}
-               />
-
-               <Input 
-                  type="radio" 
-                  name="genero"
-                  value="famale" 
-               />
-            </Radios>
+            {
+               female !== null ? <Inputs change={(event) => handleInputChange(event.target.value)}/> : null
+            }
          </Style>
       </>
    )
+}
+
+Photo.defaultProps = {
+   female: null
 }
 
 const Style = styled.div`
@@ -37,9 +65,9 @@ const Style = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
-
-   min-width: 18%;
-   border: 4px solid #1d1d1d;
+   min-width: 220px;
+   min-height: 220px;
+   border: 5px solid #1d1d1d;
    border-radius: 50%;
 
    background-color: #ffffff;

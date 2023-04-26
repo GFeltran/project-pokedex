@@ -6,7 +6,7 @@ import { PokemonsList } from '../components/components-home/pokemon-list';
 const Home = () => {
    return (
       <Container>
-         <MenuHome />
+         <MenuHome /> 
 
          <PokemonsList />
       </Container>

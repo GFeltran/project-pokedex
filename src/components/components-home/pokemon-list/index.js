@@ -49,7 +49,7 @@ export const PokemonsList = () => {
       const initPokemon = async() => {
          const data = await getPokemons(0)
          
-         console.log(data)
+         //console.log(data)
          
          setPokemons([...pokemons, ...data])
       }

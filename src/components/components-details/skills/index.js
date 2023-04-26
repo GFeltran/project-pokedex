@@ -3,23 +3,29 @@ import React from "react";
 
 import { SkillCard } from "../../skill-card";
 
-export const Skills = () => {
 
+export const Skills = ({pokemon}) => {
    return(
       <Style>
          <SkillCard 
             title={'Moves'}
-            skills={['move1', 'move2', 'move3']}
+            skills={pokemon.moves}
          />
 
          <SkillCard 
             title={'Abilities'}
-            skills={['abilitie1', 'abilitie2']}
+            skills={pokemon.abilities}
             haveDesc={true}
-            descs={['desc1', 'desc2']}
+            descs={pokemon.descs}
          />
       </Style>
    )
+}
+
+Skills.defaultProps = {
+   moves: [ 'move1', 'move2', 'move3' ],
+   abilities: [ 'abilitie1', 'abilitie2' ],
+   abilitiesDesc: [ 'desc1', 'desc2' ]
 }
 
 const Style = styled.section`
@@ -27,7 +33,7 @@ const Style = styled.section`
    display: flex;
    justify-content: space-evenly;
    align-items: center;
-
+   min-height: 100%;
    gap: 50px;
    padding: 30px 50px;
 

@@ -1,38 +1,59 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import background from '../../image/background/pokeball-bg.png'
 
 import { Type } from "../type";
 
-export const Details = () => {
+export const Details = ({ id, type, name, height, weight, desc, setColor, color }) => {
+   const [type1, setType1] = useState(null)
+   const [type2, setType2] = useState(null)
+   const [color2, setColor2] = useState(null)
+
+   useEffect(() => {
+      if(type !== undefined){
+         setType1(type[0].type.name)
+         if(type[1]){
+            setType2(type[1].type.name)
+         }
+      }
+   }, [type])
+
    return (
       <Style>
          <Info>
             <span>
-               <p className="id">#25</p>
-               <Type />
+               <p className="id">#{id}</p>
+
+               <span >
+                  <Type 
+                     type={type1 !== null ? type1 : null} 
+                     setColor={setColor}
+                     color={color}
+                  />
+                  {
+                     type2 !== null ? <Type type={type2} setColor={setColor2} color={color2}/> : null
+                  }
+               </span>
             </span>
 
-            <h1 className="name">Pikachu</h1>
+            <h1 className="name">{name}</h1>
          </Info>
 
          <About>
-            <p className="desc">
-               When several of these Pokémon gather, their electricity could build and cause lightning storms.
-            </p>
+            <p className="desc">{desc}</p>
 
-            <div className="features">
+            <Features>
                <div>
                   <i className="fas fa-ruler-vertical"></i>
-                  <p className="height">4cm</p>
+                  <p className="height">{height}dm</p>
                </div>
-               
+
                <div>
                   <i className="fas fa-weight-hanging"></i>
-                  <p className="weight">60hg</p>
+                  <p className="weight">{weight}hg</p>
                </div>
-            </div>
+            </Features>
          </About>
       </Style>
    )
@@ -65,22 +86,22 @@ const About = styled.div`
    color: #000;
    font-size: 2rem;
    text-align: center;
+`
 
-   .features{
-      display: flex;
-      justify-content: center;
-      margin-top: 40px;
-      text-align: center;
-      font-size: 2.5rem;
-   }
+const Features = styled.div`
+   display: flex;
+   justify-content: center;
+   margin-top: 40px;
+   text-align: center;
+   font-size: 2.5rem;
 
-   .features div {
+   div {
       display: flex;
       gap: 10px;
       padding: 10px 30px 10px 30px;
    }
 
-   .features div:last-child {
+   div:last-child {
       border-left: 3px dashed #000;
    }
 `
@@ -92,6 +113,11 @@ const Info = styled.div`
       font-size: 1.5rem;
       display: flex;
       justify-content: space-between;
+   }
+
+   span span {
+      display: flex;
+      gap: 10px;
    }
 
    .name{

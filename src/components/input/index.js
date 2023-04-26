@@ -4,7 +4,7 @@ import React from "react";
 import input from '../../image/checkbox.png'
 import check from '../../image/checkbox-checked.png'
 
-export const Input = ({type, name, id, isCheck, label, value}) => {
+export const Input = ({type, name, id, isCheck, label, value, change}) => {
    return(
       <>
          <Style 
@@ -12,7 +12,8 @@ export const Input = ({type, name, id, isCheck, label, value}) => {
             name={name} 
             id={id}
             value={value}
-            checked={isCheck}
+            defaultChecked={isCheck}
+            onChange={change}
          />
          {
             label !== undefined ? <label>{label}</label> : null
