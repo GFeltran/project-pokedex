@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 
 import background from '../../image/background/pokeball-bg.png'
-import listStyle from '../../image/li-style.png'
+import { ThemeContext } from "../../contexts/theme-context";
 
 const Description = ({ descs, click }) => {
    return (
@@ -34,6 +34,8 @@ Description.defaultProps = {
 }
 
 export const SkillCard = ({ title, skills, haveDesc, descs }) => {
+   const {theme} = useContext(ThemeContext)
+
    const [ative, setAtive] = useState(true)
    const [descAtive, setDescAtive] = useState(null)
 
@@ -57,7 +59,7 @@ export const SkillCard = ({ title, skills, haveDesc, descs }) => {
       <Style>
          <h2>{`${title}:`}</h2>
 
-         <List>
+         <List theme={theme}>
             <ul className={ative ? null : 'disable'}>
                {
                   skills.map((skill, index) => {
@@ -113,15 +115,15 @@ const List = styled.div`
    max-height: 400px;
    border-radius: 0 0 5px 5px ;
    border: 2px solid #fff;
-   color: #000000;
-   background: #94e5ff url(${background}) no-repeat center;
+   color: ${props => props.theme.textColor};
+   background: ${props => props.theme.mainPrimaryColor} url(${background}) no-repeat center;
    background-size: cover;
 
    ul{
       padding: 5px;
       display: auto;
       list-style-position: inside;
-      list-style-image: url(${listStyle});
+      list-style-image: url(${props => props.theme.liStyle});
    }
 
    li{
@@ -134,7 +136,7 @@ const List = styled.div`
    }
 
    .clickable:hover {
-      color: #ffffff;
+      color: ${props => props.theme.textHover};
    }
 
    ul svg {

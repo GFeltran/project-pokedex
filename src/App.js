@@ -1,14 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
-import './App.css';
 
+import { ThemeProvider } from './contexts/theme-context';
 import { AppRoutes } from './pages/routes';
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <GLobalStyle/>
       <AppRoutes />
-    </>
+    </ThemeProvider>
   );
 }
 

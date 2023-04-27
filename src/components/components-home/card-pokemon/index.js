@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 
-import background from '../../../image/background/pokebola-aberta.png'
+import { ThemeContext } from "../../../contexts/theme-context";
+
 import undefined from '../../../image/undefined.png'
 
 export const CardPokemon = ({id, name, image}) => {
+   const {theme} = useContext(ThemeContext)
+
    return(
-      <Pokebola> 
+      <Pokebola theme={theme}> 
          <Link to={`/pokemon/${name}`}>
             <h2 id="poke-id" className="poke-id">{id}</h2>
 
@@ -34,7 +37,7 @@ const Pokebola = styled.div`
    border: 3px solid #30309a;
    height: 300px;
    width: 300px;
-   background: #ffffff url(${background}) no-repeat center center;
+   background: #ffffff url(${props => props.theme.card}) no-repeat center center;
    background-size: cover;
    cursor: pointer;
    transition: 0.3s ease-in-out;

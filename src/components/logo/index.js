@@ -1,11 +1,15 @@
 import styled from 'styled-components'
+import { useContext } from 'react'
 
 import logo from '../../image/logo/logo.png'
-import bg from '../../image/logo/pokebola.png'
+
+import { ThemeContext } from '../../contexts/theme-context'
 
 export const Logo = () => {
+   const { theme } = useContext(ThemeContext)
+
    return (
-      <Background>
+      <Background theme={theme}>
          <img src={logo} alt='Logo pokédex' />
       </Background>
    )
@@ -16,11 +20,11 @@ const Background = styled.div`
    align-items: center;
    height: 250px;
    width: 250px;
-   background: url(${bg}) no-repeat center center;
+   background: url(${props => props.theme.logo}) no-repeat center center;
    background-size: cover;
 
    img{
       width: 250px;
-      margin-bottom: 90px;
+      margin-bottom: 50px;
    }
 `

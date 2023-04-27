@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
 
+import { ThemeContext } from "../../contexts/theme-context";
 import { Logo } from "../logo";
 
 export const Header = (props) =>{
+   const { theme } = useContext(ThemeContext)
+
    return(
-      <Style className="header">
+      <Style className="header" theme={theme}>
          <Link to='/'>
             <Logo />
          </Link>
@@ -22,5 +25,5 @@ const Style = styled.header`
    flex-direction: column;
    align-items: center;
    padding: 10px 25px 0;
-   background-color: #ce181d;
+   background-color: ${props => props.theme.menuPrimaryColor};
 `

@@ -4,8 +4,12 @@ import React, { useEffect, useState } from "react";
 import background from '../../image/background/pokeball-bg.png'
 
 import { Type } from "../type";
+import { useContext } from "react";
+import { ThemeContext } from "../../contexts/theme-context";
 
 export const Details = ({ id, type, name, height, weight, desc, setColor, color }) => {
+   const { theme } = useContext(ThemeContext)
+
    const [type1, setType1] = useState(null)
    const [type2, setType2] = useState(null)
    const [color2, setColor2] = useState(null)
@@ -40,7 +44,7 @@ export const Details = ({ id, type, name, height, weight, desc, setColor, color 
             <h1 className="name">{name}</h1>
          </Info>
 
-         <About>
+         <About theme={theme}>
             <p className="desc">{desc}</p>
 
             <Features>
@@ -81,9 +85,9 @@ const About = styled.div`
    padding-bottom: 10px;
    border: 2px solid #fff;
    border-radius: 0 0 6px 6px;
-   background: #94e5ff url(${background}) no-repeat center;
+   background: ${props => props.theme.mainPrimaryColor} url(${background}) no-repeat center;
    background-size: cover;
-   color: #000;
+   color: ${props => props.theme.textColor};
    font-size: 2rem;
    text-align: center;
 `
@@ -102,7 +106,7 @@ const Features = styled.div`
    }
 
    div:last-child {
-      border-left: 3px dashed #000;
+      border-left: 3px dashed ${props => props.theme.textColor};
    }
 `
 

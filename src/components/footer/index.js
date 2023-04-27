@@ -1,14 +1,22 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Toggler} from '../toggler';
 import { Sociais } from '../sociais';
 
+import { ThemeContext, themes } from '../../contexts/theme-context';
+
 export const Footer = () => {
-   const [ isCheck, setIsCheck ] = useState(false);
+   const { isCheck, setIsCheck, setTheme } = useContext(ThemeContext);
 
    const handleCheck = () => {
       setIsCheck(!isCheck)
+
+      if(isCheck){
+         setTheme(themes.light)
+      } else {
+         setTheme(themes.dark)
+      }
    }
 
    return (
