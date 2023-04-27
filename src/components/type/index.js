@@ -115,7 +115,9 @@ export const Type = ({ type, setColor, color }) => {
                setIcon(water)
                setColor('539DDF')
                break
-
+            default:
+               alert('type não encontrado')
+               break
          }
       }
 

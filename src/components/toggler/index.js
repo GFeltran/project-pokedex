@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Toggler = () => {
+export const Toggler = ({id, check, change }) => {
    return (
       <>
         <Toggle>
-            <input id='toggle' type='checkbox'/>
-            <label htmlFor='toggle'></label>
+            <input id={id} type='checkbox' checked={check} onChange={change}/>
+            <label htmlFor={id}></label>
          </Toggle> 
       </>
    )

@@ -1,12 +1,19 @@
 import styled from 'styled-components';
+import React, { useState } from 'react';
 
-import { TogglerTheme } from '../toggler-theme';
+import { Toggler} from '../toggler';
 import { Sociais } from '../sociais';
 
 export const Footer = () => {
+   const [ isCheck, setIsCheck ] = useState(false);
+
+   const handleCheck = () => {
+      setIsCheck(!isCheck)
+   }
+
    return (
       <Style>
-         <TogglerTheme />
+         <Toggler id='toggleTheme' check={isCheck} change={handleCheck}/>
          <Sociais />
       </Style>
    )
