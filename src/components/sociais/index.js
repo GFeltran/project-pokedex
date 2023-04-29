@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
+import { ThemeContext } from "../../contexts/theme-context"
 import { Social } from "../social";
 
 export const Sociais = () => {
+   const { theme } = useContext(ThemeContext)
+
    return(
       <nav>
-         <Ul>
+         <Ul theme={theme}>
             <li>
                <Social 
                   link='https://github.com/GFeltran'
@@ -41,8 +44,7 @@ const Ul = styled.ul`
       color: #ffffff;
    }
 
-
    li a:hover{
-      color: #ffce31;
+      color: ${props => props.theme.textHover};
    }
 `
