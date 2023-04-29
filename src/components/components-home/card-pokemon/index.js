@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 
 import { ThemeContext } from "../../../contexts/theme-context";
 
-import undefined from '../../../image/undefined.png'
+import { undefined } from '../../../image/image.js'
 
 export const CardPokemon = ({id, name, image}) => {
    const {theme} = useContext(ThemeContext)

@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled  from "styled-components";
 
+import { ThemeContext } from "../../contexts/theme-context";
 
 export const AddButton = ({event}) =>{
+   const { theme } = useContext(ThemeContext)
+
    return(
-      <>
-         <Button onClick={event}><i className="fas fa-plus"></i></Button>
-      </>
+      <Button onClick={event} theme={theme}>
+         <i className="fas fa-plus"></i>
+      </Button>
    )
 }
+
 
 const Button = styled.button`
    position: fixed;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 
 import { Input } from "../input";
+import { undefined } from "../../image/image.js";
 
 const Inputs = ({change}) => {
    return (
@@ -56,6 +57,7 @@ export const Photo = ({ male, female }) => {
 }
 
 Photo.defaultProps = {
+   male: undefined,
    female: null
 }
 

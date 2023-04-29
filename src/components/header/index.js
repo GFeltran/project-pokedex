@@ -25,5 +25,5 @@ const Style = styled.header`
    flex-direction: column;
    align-items: center;
    padding: 10px 25px 0;
-   background-color: ${props => props.theme.menuPrimaryColor};
+   background-color: ${props => props.theme.primaryColor};
 `

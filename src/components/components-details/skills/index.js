@@ -37,5 +37,5 @@ const Style = styled.section`
    gap: 50px;
    padding: 30px 50px;
 
-   background: #fff;
+   background: #ffffff;
 `

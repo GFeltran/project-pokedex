@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useContext } from 'react'
 
-import logo from '../../image/logo/logo.png'
+import { logo } from '../../image/image.js'
 
 import { ThemeContext } from '../../contexts/theme-context'
 

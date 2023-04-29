@@ -6,24 +6,7 @@ import { Main } from "../../main";
 import { CardPokemon } from "../card-pokemon";
 import { AddButton } from "../../add-button";
 
-const getLinks = async(id) => {
-   const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${id}`)
-   const data = await response.json()
-   return data.results.map(link => link.url)
-}
-
-async function getPokemons(id) {
-   const links = await getLinks(id);
-
-   const pokemons = await Promise.all(
-      links.map(async url =>{
-         const response = await fetch(url);
-         const data = await response.json();
-         return data
-   }) )
-   
-   return pokemons;
-}
+import { getPokemons } from "../../../scripts/js/services/getPokemons";
 
 const CardList = ({list}) => {
    return(
@@ -32,7 +15,11 @@ const CardList = ({list}) => {
             list.map((pokemon, index) => {
                return(
                   <Li key={index}>
-                     <CardPokemon name={pokemon.name} id={pokemon.id} image={pokemon.sprites.front_default}/>
+                     <CardPokemon 
+                        name={pokemon.name} 
+                        id={pokemon.id} 
+                        image={pokemon.sprites.front_default}
+                     />
                   </Li>
                )
             })
@@ -47,18 +34,16 @@ export const PokemonsList = () => {
 
    useEffect(() => {
       const initPokemon = async() => {
-         const data = await getPokemons(0)
+         const data = await getPokemons(0, 20)
          
-         //console.log(data)
-         
-         setPokemons([...pokemons, ...data])
+         setPokemons([...data])
       }
 
       initPokemon();
    }, []);
 
    async function addPokemon() {
-      const data = await getPokemons(pokemons.length)
+      const data = await getPokemons(pokemons.length, 20)
          
       setPokemons(p => [...p, ...data])
    }
@@ -73,7 +58,6 @@ export const PokemonsList = () => {
       </Main>
    );
 };
-
 
 const PokeList = styled.ul`
    display: grid;

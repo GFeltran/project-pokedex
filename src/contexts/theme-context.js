@@ -1,27 +1,21 @@
 import { createContext, useState } from "react";
 
-import lightLogo from '../image/logo/pokebola.png'
-import darkLogo from '../image/logo/masterball.png'
+import { lightLogo, darkLogo, lightCard, darkCard, lightLi, darkLi } from '../image/image.js'
 
-import lightCard from  '../image/background/pokebola-aberta.png'
-import darkCard from  '../image/background/masterball-aberta.png'
-
-import lightLi from '../image/li-style/light-style.png'
-import darkLi from '../image/li-style/dark-style.png'
 
 export const themes = {
    light: {
-      menuPrimaryColor: '#ce181d',
-      mainPrimaryColor: '#94e5ff',
+      primaryColor: '#ce181d',
+      backgroundColor: '#94e5ff',
       textColor: '#000000',
-      textHover: '#ffce56',
+      textHover: '#ffce31',
       logo: lightLogo,
       card: lightCard,
       liStyle: lightLi
    },
    dark: {
-      menuPrimaryColor: '#3e006e',
-      mainPrimaryColor: '#bcd0d7',
+      primaryColor: '#3e006e',
+      backgroundColor: '#97cfb6',
       textColor: '#ffffff',
       textHover: '#f53e28',
       logo: darkLogo,

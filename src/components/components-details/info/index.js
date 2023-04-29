@@ -1,15 +1,16 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
+import { DetailsContext } from "../../../contexts/details-context";
 import { Photo } from "../../photo";
 import { Details } from "../../detail";
 
 export const Info = ({pokemon}) => {
-   const [color, setColor] = useState(null)
+   const { color } = useContext(DetailsContext)
 
    return (
       <Section color={color !== null ? color : '1d1d1d'}>
-         <Photo  male={pokemon.imageM} female={pokemon.imageF} />
+         <Photo male={pokemon.imageM} female={pokemon.imageF} />
 
          <Details 
             id={pokemon.id} 
@@ -18,8 +19,6 @@ export const Info = ({pokemon}) => {
             weight={pokemon.weight} 
             desc={pokemon.desc}
             type={pokemon.types}
-            color={color}
-            setColor={setColor}
             />
       </Section>
    )

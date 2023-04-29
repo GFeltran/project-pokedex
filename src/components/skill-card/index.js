@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState, useContext } from "react";
 
-import background from '../../image/background/pokeball-bg.png'
+import { background } from '../../image/image.js'
 import { ThemeContext } from "../../contexts/theme-context";
 
 const Description = ({ descs, click }) => {
@@ -116,7 +116,7 @@ const List = styled.div`
    border-radius: 0 0 5px 5px ;
    border: 2px solid #fff;
    color: ${props => props.theme.textColor};
-   background: ${props => props.theme.mainPrimaryColor} url(${background}) no-repeat center;
+   background: ${props => props.theme.backgroundColor} url(${background}) no-repeat center;
    background-size: cover;
 
    ul{

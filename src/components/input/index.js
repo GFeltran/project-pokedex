@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import React from "react";
 
-import input from '../../image/checkbox.png'
-import check from '../../image/checkbox-checked.png'
+import { checkbox } from '../../image/image.js'
+import { checkboxChecked } from '../../image/image.js'
 
 export const Input = ({type, name, id, isCheck, label, value, change}) => {
    return(
@@ -28,13 +28,13 @@ const Style = styled.input`
    width: 18px;
 
    border-radius: 45%;
-   background: lightgrey url(${input}) no-repeat center ;
+   background: lightgrey url(${checkbox}) no-repeat center ;
    background-size: cover;
 
    transition: 0.2s;
    cursor: pointer;
 
    :checked{
-      background-image: url(${check});
+      background-image: url(${checkboxChecked});
    }
 `

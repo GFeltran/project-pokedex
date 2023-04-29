@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
+import { DetailsProvider } from "../contexts/details-context";
 import { MenuDetails } from "../components/components-details/menu-details";
 import { MainDetails } from "../components/components-details/main-details";
 
@@ -9,15 +10,17 @@ const PokemonDetails = () => {
    const { id } = useParams();
 
    return(
-      <Container>
-         <MenuDetails/> 
+      <DetailsProvider>
+         <Style>
+            <MenuDetails/> 
 
-         <MainDetails name={id} />
-      </Container>
+            <MainDetails name={id} />
+         </Style>
+      </DetailsProvider>
    )
 }
 
-const Container = styled.div`
+const Style = styled.div`
    min-height: 100vh;
    display: grid;
    grid-template-areas: "aside main";

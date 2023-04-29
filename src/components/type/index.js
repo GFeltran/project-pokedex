@@ -115,6 +115,7 @@ export const Type = ({ type, setColor, color }) => {
                setIcon(water)
                setColor('539DDF')
                break
+
             default:
                alert('type não encontrado')
                break
@@ -126,7 +127,7 @@ export const Type = ({ type, setColor, color }) => {
    return (
       <Style color={color}>
          <img src={icon} alt=""></img>
-         <p className="type">{type !== undefined ? type : null}</p>
+         <p className="type">{type}</p>
       </Style>
    )
 }

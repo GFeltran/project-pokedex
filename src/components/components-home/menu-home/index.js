@@ -4,12 +4,10 @@ import styled from "styled-components";
 import { Header } from "../../header";
 import { Footer } from "../../footer";
 
-
 export const MenuHome = () => {
    return(
       <Aside>
          <Header>
-            
          </Header>
 
          <Footer />
