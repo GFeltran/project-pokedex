@@ -47,4 +47,13 @@ const Ul = styled.ul`
    li a:hover{
       color: ${props => props.theme.textHover};
    }
+
+   @media (max-width: 930px) {
+      flex-direction: column;
+
+      li {
+         margin-left: 0;
+         margin-bottom: 15px;
+      }
+   }
 `

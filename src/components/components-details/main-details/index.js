@@ -29,8 +29,7 @@ export const MainDetails = ({name}) => {
          pokemonSkill.setSkills(pokemon, abilities)
       }
       
-      getDetails()
-      
+      getDetails() 
    }, [])
 
    useEffect(()=>{

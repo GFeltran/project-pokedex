@@ -27,8 +27,15 @@ export const Info = ({pokemon}) => {
 const Section = styled.section`
    grid-area: infos;
    display: flex;
+   flex-wrap: wrap;
+   gap: 25px;
    justify-content: space-around;
    align-items: center;
-
+   padding: 24px;
    background: #${props => props.color};
+
+   @media (max-width: 930px) {
+      flex-direction: column;
+      justify-content: center;
+   }
 `

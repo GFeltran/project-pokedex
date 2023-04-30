@@ -26,4 +26,10 @@ const Style = styled.header`
    align-items: center;
    padding: 10px 25px 0;
    background-color: ${props => props.theme.primaryColor};
+
+   @media (max-width: 930px) {
+      flex-direction: row;
+      align-items: start;
+      padding: 5px 25px;
+   }
 `

@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import styled  from "styled-components";
 
 import { ThemeContext } from "../../contexts/theme-context";
+import { HomeContext } from "../../contexts/home-context";
 
-export const AddButton = ({event}) =>{
+export const AddButton = () =>{
    const { theme } = useContext(ThemeContext)
+   const { addPokemon } = useContext(HomeContext)
 
    return(
-      <Button onClick={event} theme={theme}>
+      <Button onClick={addPokemon} theme={theme}>
          <i className="fas fa-plus"></i>
       </Button>
    )

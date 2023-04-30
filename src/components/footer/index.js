@@ -36,4 +36,13 @@ const Style = styled.footer`
    padding: 15px 25px;
    border-top: 2px solid #ffffff;
    background: #1e1e1e;
+
+   @media (max-width: 930px) {
+      flex-direction: column-reverse;
+      height: 100%;
+      width: 80px;
+      border-top: none;
+      border-left: 2px solid #ffffff;
+      padding: 25px 15px;
+   }
 `

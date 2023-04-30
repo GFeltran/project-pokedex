@@ -6,7 +6,7 @@ import { checkboxChecked } from '../../image/image.js'
 
 export const Input = ({type, name, id, isCheck, label, value, change}) => {
    return(
-      <>
+      <Div>
          <Style 
             type={type} 
             name={name} 
@@ -16,19 +16,30 @@ export const Input = ({type, name, id, isCheck, label, value, change}) => {
             onChange={change}
          />
          {
-            label !== undefined ? <label>{label}</label> : null
+            label !== undefined ? <label htmlFor={id}>{label}</label> : null
          }
-      </>
+      </Div>
    )
 }
 
+const Div = styled.div`
+   display: flex;
+   align-items: center;
+   
+   label {
+      padding-left: 5px;
+      cursor: pointer;
+   }
+`
+
 const Style = styled.input`
    all: unset;
+   display: block;
    height: 18px;
    width: 18px;
 
    border-radius: 45%;
-   background: lightgrey url(${checkbox}) no-repeat center ;
+   background: #e0e0e0 url(${checkbox}) no-repeat center ;
    background-size: cover;
 
    transition: 0.2s;

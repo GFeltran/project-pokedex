@@ -1,12 +1,11 @@
-import React,  { useEffect, useState } from "react";
+import React,  { useEffect, useContext } from "react";
 import styled from "styled-components";
+import { HomeContext } from "../../../contexts/home-context";
 
 import { Main } from "../../main";
 
 import { CardPokemon } from "../card-pokemon";
 import { AddButton } from "../../add-button";
-
-import { getPokemons } from "../../../scripts/js/services/getPokemons";
 
 const CardList = ({list}) => {
    return(
@@ -29,32 +28,22 @@ const CardList = ({list}) => {
 }
 
 export const PokemonsList = () => {
-   const [ pokemons, setPokemons] = useState([])
-   //const [ loading, setLoading ] = useState(true)
+   const { pokemons, setPokemons, initPokemon } = useContext(HomeContext)
+   //const [ loading, setLoading ] = useState(true)   
 
    useEffect(() => {
-      const initPokemon = async() => {
-         const data = await getPokemons(0, 20)
-         
-         setPokemons([...data])
-      }
-
       initPokemon();
+
    }, []);
 
-   async function addPokemon() {
-      const data = await getPokemons(pokemons.length, 20)
-         
-      setPokemons(p => [...p, ...data])
-   }
-
+   
    return(
       <Main>
          <PokeList>
             <CardList list={pokemons}/>
          </PokeList>   
 
-         <AddButton event={addPokemon}/>
+         <AddButton />
       </Main>
    );
 };
@@ -65,9 +54,13 @@ const PokeList = styled.ul`
    height: 100%;
    padding: 5px;
    gap: 5px;
+
+   @media (max-width: 930px) {
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+   }
 `
 
 const Li = styled.li`
    display: flex;
-   justify-content: center;}
+   justify-content: center;
 `

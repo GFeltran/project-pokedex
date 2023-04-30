@@ -30,8 +30,20 @@ const Style = styled.div`
       display: grid;
       grid-template-areas: "infos"
                            "others";
-      grid-template-rows: 0.85fr 1.15fr;
+      grid-template-rows: auto auto;
    }
+
+   @media (max-width: 930px) {
+      grid-template-areas: "aside"
+                           "main";
+      grid-template-columns: auto;
+      grid-template-rows: auto 1fr;
+
+      main {
+         grid-template-rows: auto 1fr;
+      }
+   }
+
 `
 
 export default PokemonDetails;

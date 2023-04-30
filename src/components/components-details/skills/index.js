@@ -31,11 +31,12 @@ Skills.defaultProps = {
 const Style = styled.section`
    grid-area: others;
    display: flex;
+   flex-wrap: wrap;
    justify-content: space-evenly;
    align-items: center;
    min-height: 100%;
    gap: 50px;
-   padding: 30px 50px;
+   padding: 30px 10px;
 
    background: #ffffff;
 `
