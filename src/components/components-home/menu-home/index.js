@@ -2,15 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import { Header } from "../../header";
-import { Search } from "../../search";
 import { Footer } from "../../footer";
 
 export const MenuHome = () => {
    return(
       <Aside>
-         <Header>
-            <Search />
-         </Header>
+         <Header />
 
          <Footer />
       </Aside>

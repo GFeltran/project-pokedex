@@ -6,8 +6,6 @@ export const HomeContext = createContext({});
 
 export const HomeProvider = (props) => {
    const [ pokemons, setPokemons ] = useState([])
-   const [ filter, setFilter ] = useState(false)
-   const [ pokemonFilter, setPokemonFilter ] = useState([])
 
    const initPokemon = async() => {
       const data = await getPokemons(0, 20)
@@ -16,15 +14,9 @@ export const HomeProvider = (props) => {
    }
 
    async function addPokemon() {
-      if(filter) {
-         const data = pokemonFilter.splice(0, 20)
+      const data = await getPokemons(pokemons.length, 20)
 
-         setPokemons(p => [...p, ...data])
-      } else {
-         const data = await getPokemons(pokemons.length, 20)
-
-         setPokemons(p => [...p, ...data])
-      }
+      setPokemons(p => [...p, ...data])
    }
 
 
