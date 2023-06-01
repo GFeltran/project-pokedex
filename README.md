@@ -31,7 +31,7 @@ O desafio conciste na criação de uma aplicação react estilo pokédex consumi
     - Tipo do pokemon.
 - A aplicação deve possuir um botão para que possa alternar o tema da aplicação. 
 
-### Designs:
+### ~~Designs:~~
 Design não colocado 
 
 ## Meu Processo
